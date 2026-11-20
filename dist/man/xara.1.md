@@ -165,7 +165,12 @@ along with KISS for applications such as Pat. See the README for full details.
 :   Release PTT after *N* seconds max, 1-120 (default 30).
 
 **--registered**
-:   Enable registered speeds (must set build flag)
+
+:   Enable registered mode (default with the **registered** feature).
+
+**--unregistered**
+
+:   Disable registered mode for this run. If both flags are given, the last one applies.
 
 **-h**, **--help**, **-V**, **--version**
 

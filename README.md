@@ -112,7 +112,8 @@ container on x86_64:
     --kiss-port N|off       KISS TCP port (default: 8100)
     --persistence P         KISS p-persistence
 
-    --registered            enable registered speeds (must set build flag)
+    --registered            enable registered mode (on by default if the `registered` feature is enabled)
+    --unregistered          disable registered mode for this run
 
     --digi CALL             FM digipeat for CALL (default: off)
     --record PATH           record rx, tx and PTT to FLAC (or WAV if .wav)
@@ -183,8 +184,16 @@ options:
 
 ## registered mode
 
-compile with the `registered` feature for higher speeds if you have a
-registered copy of VARA, then run with `xara --registered ...`.
+previous versions of xara required that you explicitly enable the `--features
+registered` build flag to use the speeds that are only available to registered
+VARA users. this is now the default, the build flag is no longer required but
+also will not hurt if you include it. if you want to disable this feature so
+that xara only uses the speeds available to unregistered VARA users, you can
+build with `--no-default-features`. If you want to run xara with only the
+unregistered speeds available, the preferred approach is to build xara with the
+default which includes the `registered` feature enabled, and then run xara with
+the `--unregistered` flag. This allows you to test at unregistered speeds
+without having to rebuild xara.
 
 ## copyright
 
