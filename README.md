@@ -1,6 +1,22 @@
 # xara
 
-a VARA-compatible modem for linux, freebsd and macOS. tested against VARA HF 4.9.0 and FM 4.4.0.
+a VARA-compatible modem for linux, freebsd and macOS.
+
+In testing with VARA HF and VARA FM, xara has been found to be compatible with
+the following versions:
+
+- ✅ VARA HF 4.9.0 and VARA FM 4.4.0
+- ✅ VARA HF 4.9.2 and VARA FM 4.4.2
+
+Due to breaking changes introduced by the VARA developer, xara is not (and will
+not be) compatible with:
+
+- ❌ VARA HF 4.9.1 and VARA FM 4.4.1
+
+The VARA HF 4.9.1 and VARA FM 4.4.1 versions which introduced the breaking
+changes were only out for a few weeks. It's unlikely you will encounter them
+on the air. With the exception of those HF 4.9.1 and FM 4.4.1, xara should be
+compatible with any reasonably modern VARA HF and VARA FM release.
 
 ## minimum config
 
@@ -172,6 +188,8 @@ registered copy of VARA, then run with `xara --registered ...`.
 
 ## copyright
 
-copyright (c) 2026 x0rro
+original xara code copyright (c) 2026 x0rro
+
+minor modifications made since xara version 0.1.3 are copyright (c) 2026 anelson
 
 released under MIT license, see LICENSE
