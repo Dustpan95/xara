@@ -19,6 +19,40 @@ on fedora:
 then build the usual way. the README covers all the main options for
 linux.
 
+### DXBerry-Pi and VarAC 17.1.7
+
+DXBerry-Pi reports that its native VarAC 17.1.7 client disconnects when
+Xara advertises HF 4.9.0. The optional `varac-17` build feature reports
+`VERSION VARA HF v4.9.3` on the TCP command port. This is a client
+version handshake option. The executable and installer still identify
+the Xara release as usual. The 4.9.3 changelog describes backward
+compatibility without specifying the modem changes, so full 4.9.3
+interoperability has yet to be verified.
+[DXBerry-Pi report](https://github.com/Dustpan95/DXBerry-Pi/pull/49) ·
+[VARA release announcement](https://rosmodem.wordpress.com/)
+
+On 64-bit Raspberry Pi OS or DXBerry-Pi, install the Linux prerequisites
+above, plus a C linker, `pkg-config`, and Python 3. From the Xara checkout
+with Rust and Cargo on your PATH, run:
+
+    bash scripts/dxberry_kit.sh
+
+Copy `target/dxberry/xara.zip` to
+`/var/lib/dxberry/installers/xara.zip` and select **Programs → Install**
+in DXBerry-Pi. Start Xara before connecting VarAC. Use modem host
+`127.0.0.1`, command port `8300`, data port `8301`, and KISS port
+`8100` when using the standard DXBerry-Pi ports. A `VERSION` command
+terminated with a carriage return on port 8300 should return
+`VERSION VARA HF v4.9.3`.
+
+The stock DXBerry-Pi Xara launcher discards playback. To conduct a QSO,
+launch VarAC from DXBerry-Pi and run the installed Xara separately,
+with your station's capture, playback, and PTT settings:
+
+    /opt/dxberry-apps/xara/xara --config /path/to/station.conf
+
+See the README for Xara's config keys and radio options.
+
 ## macOS
 
 no additional deps. audio goes through CoreAudio. devices are named by
